@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Técnico</title>
+  <link rel="stylesheet" href="home.css">
+  <!-- Importando biblioteca de ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+  <div class="page-container">
+    
+    <!-- Cabeçalho Principal -->
+    <header class="main-header">
+      
+        
+      
+      <!-- Menu de Navegação -->
+      <nav class="nav-bar">
+      <div class="nav-left">
+          <div class="logo">
+          <img src="com.jpg" alt="Help Desk Comandos" style="height: 40px; width: auto; vertical-align: middle;">
+        </div>
+          <div class="circle-icon"><i class="fa-solid fa-arrow-right"></i></div>
+          <button class="nav-btn btn-home"><i class="fa-solid fa-house"></i>Home</button>
+          <button class="nav-btn btn-login" onclick="toggleLoginModal()"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+          <button class="nav-btn btn-cadastro"><i class="fa-solid fa-user-plus"></i> Cadastro</button>
+          <button class="nav-btn btn-tecnico"><i class="fa-solid fa-screwdriver-wrench"></i> Solicitar Técnico</button>
+          <button class="nav-btn btn-pagamento"><i class="fa-solid fa-credit-card"></i> Pagamento</button>
+        </div>
+        <div class="nav-right">
+          
+          <!-- Botão de login que aciona o Modal -->
+          
+        </div>
+      </nav>
+    </header>
+
+    <!-- Conteúdo Principal Grid -->
+    <main class="main-content">
+      
+      <!-- Coluna da Esquerda -->
+      <section class="left-column">
+        <div class="search-box">
+          <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> pesquisa</button>
+        </div>
+        
+        <div class="explain-list">
+          <div class="explain-item"><i class="fa-solid fa-circle-info"></i> explique o problema resumidamente</div>
+          <div class="explain-item"><i class="fa-solid fa-clock"></i> defina o melhor horário</div>
+          <div class="explain-item"><i class="fa-solid fa-check-double"></i> aguarde a confirmação</div>
+            <!-- Seus Botões Modificados -->
+  <!-- Passamos o texto da ação como argumento na função para personalizar o modal -->
+  <button class="nav-btn btn-salvar" onclick="toggleLoginModal('Salvar')">
+    <i class="fa-solid fa-floppy-disk"></i> Salvar
+  </button>
+  
+  <button class="nav-btn btn-editar" onclick="toggleLoginModal('Editar')">
+    <i class="fa-solid fa-pen-to-square"></i> Editar
+  </button>
+  
+  <button class="nav-btn btn-excluir" onclick="toggleLoginModal('Excluir')">
+    <i class="fa-solid fa-trash-can"></i> Excluir
+  </button>
+
+  <!-- Estrutura do Modal -->
+  <div id="loginModal" class="modal-overlay" onclick="fecharModalFora(event)">
+    <div class="modal-content">
+      <h3>Área de Login</h3>
+      <p>Você precisa logar para <strong id="acao-nome">executar esta ação</strong>.</p>
+      
+      <!-- Formulário simulado de login -->
+      <input type="text" placeholder="Usuário" style="width:90%; margin-bottom:10px; padding:8px;"><br>
+      <input type="password" placeholder="Senha" style="width:90%; margin-bottom:10px; padding:8px;"><br>
+      
+      <button class="close-btn" onclick="toggleLoginModal()">Fechar</button>
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <!-- Coluna da Direita (Fundo Escuro) -->
+      <aside class="right-column">
+        <div class="upload-box">
+          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up fa-2x"></i></div>
+          <span>anexar arquivo</span>
+        </div>
+        
+        <div class="faq-box">
+          <h3><i class="fa-solid fa-circle-question"></i> Dúvidas</h3>
+          <div class="faq-content">
+            <p style="padding: 15px; color: #555; font-size: 14px; text-align: center;">Perguntas frequentes e ajuda online.</p>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="main-footer">
+      &copy; 2026 TechLogo - Todos os direitos reservados.
+    </footer>
+
+  </div>
+
+  <!-- JANELA POPUP (MODAL) DE LOGIN -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="close-modal-btn" onclick="toggleLoginModal()">&times;</button>
+      <h2>Área de Login</h2>
+      <form onsubmit="event.preventDefault(); alert('Login simulado com sucesso!'); toggleLoginModal();">
+        <div class="input-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="input-group">
+          <label>Senha</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="submit-login-btn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script simples para abrir/fechar o login -->
+  <script>
+    function toggleLoginModal() {
+      const modal = document.getElementById('loginModal');
+      modal.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
